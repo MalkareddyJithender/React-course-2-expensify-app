@@ -14,8 +14,8 @@ const ExpenseListItem = ({id,description,amount,createdAt}) => (
             {currencyFormatter.format(amount/100,{code:'INR'})}            
               -     
             {moment(createdAt).format('MMMM Do, YYYY')}
-             </p>
-    </div>
+         </p>       
+            </div>
 );
 
 export default ExpenseListItem;
