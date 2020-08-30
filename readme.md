@@ -10,6 +10,10 @@ git commit -- Creates a new commit(savepoint) with files from staged changes are
 
 git log -- print git commits
 
+git remote - to view the git remotes
+
+git remote -v - to view verbose output
+
 ---------------------------------------------------------------------------------------
 # why do we set/use environment variables in our expensify project?
 1.we don't wanna share our secret data so in place of that we use the env variables.

@@ -1,5 +1,6 @@
 import { v4 as uuidv4  } from 'uuid';
 import database from '../firebase/firebase';
+import expenses from '../tests/fixtures/expenses';
 
     //component calls action generator
     //action generator returns an object
@@ -18,7 +19,7 @@ type:'ADD_EXPENSE',
 expense
 });
 
-
+//startAddExpense 
 export const startAddExpense = (expenseData = {}) =>
 {
     return (dispatch) =>
@@ -53,3 +54,30 @@ type:'EDIT_EXPENSE',
 id,
 updates
 });
+
+//SET_EXPENSES
+
+export const setExpenses = (expenses) =>({
+    type:'SET_EXPENSES',
+    expenses
+});
+
+//startSetExpenses
+export const startSetExpenses = () =>
+{
+    return (dispatch) =>
+    {
+       return database.ref('expenses').once('value').then((dataSnapshot) =>
+        {
+            const expenses = [];
+            dataSnapshot.forEach((childDataSnapshot) =>
+            {
+                expenses.push({
+                    id:childDataSnapshot.key,
+                    ...childDataSnapshot.val()
+                });
+            });
+            dispatch(setExpenses(expenses));
+        });
+    };
+};
