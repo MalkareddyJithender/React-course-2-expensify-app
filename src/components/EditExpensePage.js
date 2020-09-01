@@ -1,6 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { editExpense,startRemoveExpense} from '../actions/expenses';
+import {
+     editExpense,
+     startEditExpense,
+     startRemoveExpense
+    } from '../actions/expenses';
 import ExpenseForm from './ExpenseForm';
 
 // To Avoid inline Functions we have to create class based components
@@ -9,7 +13,7 @@ export class EditExpensePage extends React.Component
 {
     onSubmit= (expense) =>
     {
-        this.props.editExpense(this.props.expense.id,expense);
+        this.props.startEditExpense(this.props.expense.id,expense);
         this.props.history.push('/');
         console.log('updated',expense);
     };
@@ -42,7 +46,7 @@ export class EditExpensePage extends React.Component
 const mapStateToProps = (state,props) => ({   expense:state.expenses.find((expense) => expense.id === props.match.params.id) });
 
 const mapDispatchToProps = (dispatch) => ({
-     editExpense:(id,expense) => dispatch(editExpense(id,expense)),
+     startEditExpense:(id,expense) => dispatch(startEditExpense(id,expense)),
      startRemoveExpense:(data) => dispatch(startRemoveExpense(data))
     });
 

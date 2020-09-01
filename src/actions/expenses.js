@@ -71,6 +71,21 @@ id,
 updates
 });
 
+//startEditExpense
+export const startEditExpense = (id,expense) =>
+{
+    return (dispatch) =>
+    {
+        return database.ref(`expenses/${id}`).update(expense).then(() =>
+        {
+            dispatch(editExpense(id,expense));
+        }).catch((e) =>
+        {
+            console.log('expense updation failed!',e);
+        });
+    };
+};
+
 //SET_EXPENSES
 
 export const setExpenses = (expenses) =>({
