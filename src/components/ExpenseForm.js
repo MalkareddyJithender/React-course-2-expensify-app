@@ -81,12 +81,12 @@ import {SingleDatePicker} from 'react-dates';
     render()
     {
         return (
-            <div>
-                {this.state.error && <p>{this.state.error}</p>}
-               <form onSubmit={this.onSubmit}>
+               <form className="form" onSubmit={this.onSubmit}>
+               {this.state.error && <p className="form__error">{this.state.error}</p>}
                <input 
                type="text"
                placeholder="Description"
+               className="text-input"
                value={this.state.description}
                autoFocus
                onChange={this.onDescriptionChange}
@@ -94,6 +94,7 @@ import {SingleDatePicker} from 'react-dates';
                <input 
                type="text"
                placeholder="Amount"
+               className="text-input"
                value={this.state.amount}
                onChange={this.onAmountChange}
                />
@@ -108,12 +109,14 @@ import {SingleDatePicker} from 'react-dates';
                <textarea
                placeholder="Add a note for your Expense(optional)"
                value={this.state.note}
+               className="textarea"
                onChange={this.onNoteChange}
                >
                </textarea>
-               <button>Add Expense</button>
+               <div>
+                <button className="button">Save Expense</button>
+               </div>
                </form>
-            </div>
         );
     }
 };

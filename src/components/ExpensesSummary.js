@@ -1,8 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
+import currencyFormatter from 'currency-formatter';
 import getVisibleExpenses from '../selecters/expenses';
 import getExpensesTotal from '../selecters/expenses-total';
-import {connect} from 'react-redux';
-import currencyFormatter from 'currency-formatter';
+
 
 
 export class ExpensesSummary extends React.Component
@@ -11,12 +13,17 @@ export class ExpensesSummary extends React.Component
     {
         const expenseWord = this.props.expensesCount === 1 ? 'expense' : 'expenses';
         return (
-            <div>
+            <div className="page-header">
+                <div className="content-container">
                 {
-                <h4> viewing {this.props.expensesCount} {expenseWord} totalling 
-                { currencyFormatter.format(this.props.expensesTotal/100,{code:'INR'})} 
-                </h4> 
+                <h1 className="page-header__title">
+                 viewing <span>{this.props.expensesCount}</span> {expenseWord} totalling  <span>{ currencyFormatter.format(this.props.expensesTotal/100,{code:'INR'})}</span> 
+                </h1> 
                 }
+                <div className="page-header__actions">
+                <Link className="button" to="/create">Add Expense</Link>
+                </div>
+                </div>
             </div>
         );
     }

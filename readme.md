@@ -36,3 +36,12 @@ DefinePlugin of webpack to manually pass those variables.
 5.heroku config - to view heroku environment variables
 6.heroku config:set KEY=value - to set environment variables on heroku
 7.heroku config:unset KEY - to unset the environment variables on heroku 
+----------------------------------------------------------------------------------------------
+# babel-polyfill
+
+=> It should allows our application to be simulated/rendered/run on various browsers and it's versions...
+=> polyfill adds support to browsers by internally adding some features to browsers which are initially 
+   doesn't have features...
+
+   eg:chrome older browser doesn't have includes() array method so polyfill should internally add includes() to
+      browser.so our application should successfully run on that old chrome browser  
