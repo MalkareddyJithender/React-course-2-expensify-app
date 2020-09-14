@@ -1,5 +1,5 @@
 import React from 'react';
-import { startLogin } from '../actions/auth';
+import { startLogin,startLogin2 } from '../actions/auth';
 import { connect } from 'react-redux';
 
 export class LoginPage extends React.Component
@@ -11,10 +11,14 @@ export class LoginPage extends React.Component
                 <div className="box-layout__box">
                 <h1 className="box-layout__title">Expensify</h1>
                 <p>It's time to get your expenses under control</p>
-                <button 
+                <button
                 onClick={this.props.startLogin}
                 className="button"
                  >Login with Google</button>
+                <button
+                onClick={this.props.startLogin2} 
+                className="button--fb"
+                 >Login with Facebook</button>
                 </div>
             </div>
         );
@@ -22,7 +26,8 @@ export class LoginPage extends React.Component
 };
 
 const mapDispatchToProps = (dispatch) =>({
-    startLogin:() => dispatch(startLogin())
+    startLogin:() => dispatch(startLogin()),
+    startLogin2:() => dispatch(startLogin2())
 });
 
 export default connect(undefined,mapDispatchToProps)(LoginPage);

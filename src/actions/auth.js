@@ -1,4 +1,4 @@
-import { firebase,googleAuthProvider } from '../firebase/firebase';
+import { firebase,googleAuthProvider,facebookAuthProvider } from '../firebase/firebase';
 
 //startLogin Action Generator
 const startLogin = () =>
@@ -6,6 +6,14 @@ const startLogin = () =>
     return () =>
     {
         return firebase.auth().signInWithPopup(googleAuthProvider);
+    };
+};
+
+const startLogin2 = () =>
+{
+    return () =>
+    {
+        return firebase.auth().signInWithPopup(facebookAuthProvider);
     };
 };
 
@@ -29,4 +37,4 @@ export const Logout = () =>({
     type:'LOGOUT'
 });
 
-export { startLogin,startLogout };
+export { startLogin,startLogin2,startLogout };
