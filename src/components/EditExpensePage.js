@@ -6,20 +6,43 @@ import {
      startRemoveExpense
     } from '../actions/expenses';
 import ExpenseForm from './ExpenseForm';
+import ExpenseModal from './ExpenseModal';
 
 // To Avoid inline Functions we have to create class based components
 
 export class EditExpensePage extends React.Component
 {
+    state ={
+        selectedExpense:undefined
+    };
+
     onSubmit= (expense) =>
     {
         this.props.startEditExpense(this.props.expense.id,expense);
         this.props.history.push('/');
     };
-    onRemove = (e) =>
+
+    handleClearSelectedExpense = () =>
+    {
+        this.setState(() => ({
+            selectedExpense:undefined
+        }));
+    };
+
+    onRemove = () =>
     {
         this.props.startRemoveExpense({id:this.props.expense.id});
+        this.setState(() => ({
+            selectedExpense:undefined
+        }));
         this.props.history.push('/');
+    };
+
+    onClick = () =>
+    {
+        this.setState(() =>({
+            selectedExpense:this.props.expense.description
+        }));
     };
 
     render()
@@ -38,10 +61,15 @@ export class EditExpensePage extends React.Component
               />
             <button 
             className="button button--secondary"
-            onClick={this.onRemove}
+            onClick={this.onClick}
             >
             Remove Expense
             </button>
+            <ExpenseModal 
+             selectedExpense={this.state.selectedExpense}
+             handleClearSelectedExpense={this.handleClearSelectedExpense}
+             onRemove={this.onRemove}
+            />
             </div>
             </div>
         );

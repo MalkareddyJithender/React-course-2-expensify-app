@@ -5,7 +5,7 @@ exports[`should render ExpenseList with empty data 1`] = `
   className="content-container"
 >
   <div
-    class="list-header"
+    className="list-header"
   >
     <div
       className="show-for-mobile"
@@ -42,7 +42,7 @@ exports[`should render ExpenseList with expenses 1`] = `
   className="content-container"
 >
   <div
-    class="list-header"
+    className="list-header"
   >
     <div
       className="show-for-mobile"
