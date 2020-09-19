@@ -12,6 +12,14 @@
     text-decoration:none;
 }
 
+.button--user
+{
+    @extend .button;
+    background:#CC00FF;
+    font-size:$font-size-small;
+    color:white;
+}
+
 .button--fb
 {
     line-height:1;

@@ -17,10 +17,14 @@ const startLogin2 = () =>
     };
 };
 
-//Login action generator
-export const Login = (uid) =>({
+//Login Action generator
+export const Login = (user) =>({
     type:'LOGIN',
-    uid
+    uid:user.uid,
+    userName:user.userName,
+    userEmail:user.userEmail,
+    userPhoto:user.userPhoto,
+    userPhone:user.userPhone
 });
 
 //startLogout Action Generator

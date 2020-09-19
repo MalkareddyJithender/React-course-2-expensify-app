@@ -5,3 +5,30 @@
     padding:0 $m-size;
 }
 
+.content-container--profile
+{
+    @extend .content-container;
+    max-width:90rem;
+    margin-top:$s-size;
+    padding:$s-size 0;
+    border:1px solid lighten($grey,50);
+
+    @media(max-width:$desktop-breakpoint - 1)
+    {
+        margin:$s-size $s-size 0 $s-size;
+    }
+}
+
+.content-container--About
+{
+    @extend .content-container;
+    max-width:90rem;
+    padding:0;
+    margin-top:$m-size;
+    border:1px solid lighten($grey,50);
+
+    @media(max-width:$desktop-breakpoint - 1)
+    {
+        margin:$s-size $s-size $s-size $s-size;
+    }
+}

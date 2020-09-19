@@ -39,8 +39,16 @@ firebase.auth().onAuthStateChanged((user) =>
     if(user)
     {
         console.log('log in');
+        console.log(user);
         
-        store.dispatch(Login(user.uid));
+        //store.dispatch(Login(user.uid));
+        store.dispatch(Login({
+            uid:user.uid,
+            userName:user.displayName,
+            userEmail:user.email,
+            userPhoto:user.photoURL,
+            userPhone:user.phoneNumber
+        }));
         store.dispatch(startSetExpenses()).then(() =>
         {
             renderApp();

@@ -13,9 +13,14 @@ export class ExpensesSummary extends React.Component
     {
         const expenseWord = this.props.expensesCount === 1 ? 'expense' : 'expenses';
         const expenseWord2 = this.props.hiddenExpensesCount <= 1 ? 'expense' : 'expenses';
+        const name = this.props.userName;
         return (
             <div className="page-header">
                 <div className="content-container">
+                <div className="page-header__user">
+                    <h1 className="page-header__user__name">Welcome <span id="name">{name}</span></h1>
+                    <Link className="button--user" to="/user">user</Link>
+                </div>
                 {
                 <h1 className="page-header__title">
                  viewing <span>{this.props.expensesCount}</span> {expenseWord} totalling  <span>{ currencyFormatter.format(this.props.expensesTotal/100,{code:'INR'})}</span> 
@@ -47,7 +52,8 @@ const mapStateToProps = (state) =>
     return {
         expensesCount:visibleExpenses.length,
         expensesTotal:getExpensesTotal(visibleExpenses),
-        hiddenExpensesCount:state.expenses.length - visibleExpenses.length
+        hiddenExpensesCount:state.expenses.length - visibleExpenses.length,
+        userName:state.auth.userName
     }
 };
 

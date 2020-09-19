@@ -7,6 +7,26 @@ exports[`should render Expenses Summary component correctly with 1 expense 1`] =
   <div
     className="content-container"
   >
+    <div
+      className="page-header__user"
+    >
+      <h1
+        className="page-header__user__name"
+      >
+        Welcome 
+        <span
+          id="name"
+        >
+          Malkareddy Jithender
+        </span>
+      </h1>
+      <[object Object]
+        className="button--user"
+        to="/user"
+      >
+        user
+      </[object Object]>
+    </div>
     <h1
       className="page-header__title"
     >
@@ -52,6 +72,26 @@ exports[`should render Expenses Summary component correctly with multiple expens
   <div
     className="content-container"
   >
+    <div
+      className="page-header__user"
+    >
+      <h1
+        className="page-header__user__name"
+      >
+        Welcome 
+        <span
+          id="name"
+        >
+          Malkareddy Jithender
+        </span>
+      </h1>
+      <[object Object]
+        className="button--user"
+        to="/user"
+      >
+        user
+      </[object Object]>
+    </div>
     <h1
       className="page-header__title"
     >
